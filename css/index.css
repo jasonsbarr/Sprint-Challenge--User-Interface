@@ -221,9 +221,56 @@ p {
 /**
  * Page header styles
  */
-.page-header-img {
+.page-header {
+    position: relative;
+}
+
+.page-header::before {
+    background-color: coral;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: all .5s;
     width: 100%;
+}
+
+.page-header:hover::before {
+    opacity: 1;
+}
+
+.page-header::after {
+    background: #ffffff;
+    border-radius: 5px;
+    color: coral;
+    content: 'Lambda Sprint Challenge';
+    font-size: 1.2rem;
+    font-weight: bold;
+    left: 50%;
+    opacity: 0;
+    padding: 1em 2.5em;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s;
+}
+
+.page-header:hover::after {
+    opacity: 1;
+}
+
+.page-header-img {
     animation: bounceDown 1s ease-out;
+    opacity: 1;
+    position: relative;
+    transition: all .5s;
+    width: 100%;
+}
+
+.page-header-img:hover {
+    opacity: 0;
 }
 
 .about-page .page-header-img {
@@ -320,12 +367,16 @@ footer {
 .middle-content .boxes .box { /* y'all are hilarious */
     width: 12.5%;
     height: 100px;
-    background: black;
     margin: 20px 2.5%;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .3s;
+}
+
+.box:hover {
+    opacity: .8;
 }
 
 /* Box color backgrounds */
