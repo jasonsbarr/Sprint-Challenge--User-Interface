@@ -74,8 +74,68 @@ p {
 
 .container {
     width: 800px;
-    margin: 0 auto;
+    margin: 1.3rem auto 0;
 }
+
+.container section {
+    margin-bottom: 1.5rem;
+}
+
+/**
+ * Header and nav styles
+ */
+#page-header {
+    align-items: flex-end;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2.4rem;
+
+}
+
+.logo-img {
+    margin-bottom: -3px;
+    transition: all .3s;
+}
+
+.logo-img:hover {
+    opacity: 0.7;
+}
+
+.nav {
+    margin-left: 3rem;
+    width: 100%;
+}
+
+.nav-list {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link {
+    color: #000000;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.nav-link:hover {
+    border-bottom: 1px dashed #999999;
+    color: #777777;
+}
+
+/**
+ * Page header styles
+ */
+.page-header-img {
+    width: 100%;
+}
+
+/**
+ * Content area styles
+ */
+
 
 .top-content {
     display: flex;
@@ -132,6 +192,10 @@ p {
     padding-right: 0;
 }
 
+/**
+ * Footer styles
+ */
+
 footer {
     width: 100%;
     background: black;
@@ -148,5 +212,12 @@ footer nav {
 
 footer nav a {
     color: white;
+    font-weight: bold;
     text-decoration: none;
+    transition: all .3s;
+}
+
+footer nav a:hover {
+    color: #dddddd;
+    text-decoration: underline;
 }
