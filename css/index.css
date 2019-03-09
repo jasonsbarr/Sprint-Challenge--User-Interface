@@ -145,10 +145,18 @@ p {
     border-bottom: 1px dashed black;
 }
 
+.about-page .top-content {
+    justify-content: flex-start;
+}
+
+.top-content .text-container,
+.top-content p {
+    padding-bottom: 20px;
+}
+
 .top-content .text-container {
     width: 48%;
     padding: 0 1%;
-    padding-bottom: 20px;  
 }
 
 .middle-content {
@@ -159,6 +167,10 @@ p {
 .middle-content h2 {
     padding: 0 2%;
     margin-bottom: 0;
+}
+
+.cards {
+    
 }
 
 .middle-content .boxes {
@@ -231,6 +243,10 @@ p {
 
 .bottom-content .text-container:last-child {
     padding-right: 0;
+}
+
+.about-page .bottom-content {
+    justify-content: flex-start;
 }
 
 /**
