@@ -47,8 +47,14 @@ table {
 	border-spacing: 0;
 }
 
-* {
+:root {
     box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
 }
 
 html, body {
