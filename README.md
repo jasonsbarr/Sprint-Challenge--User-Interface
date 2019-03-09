@@ -34,25 +34,44 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. If you were to describe semantic HTML to the next cohort of students, what would you say?
 
+At the most basic level, semantic HTML uses markup elements that have an already-defined meaning so both humans and machines can look at the code and understand fundamentally what it's doing apart from the textual and media contents.
+
+When you use semantic elements you state your intent to the reader, human or otherwise, about how the thing(s) you are communicating content-wise are to be understood and divided up.
+
 2. Name two big differences between ```display: block;``` and ```display: inline;```.
+
+`display: block;` takes up the full width of the viewport by default and uses all four of the core box model properties to determine what space it takes up and how, and each of those properties can be defined explicitly.
+
+For a `display: inline;` element, the width is determined by its internal content and setting properties like `margin` and `width` doesn't affect alignment, placement, or the spatial relationship between the `inline` element and its adjacent/surrounding elements. You can still set a `border` and `padding` on an inline element, but `padding` won't push away the content on the lines above and below the `inline` element like it would with a `block` element; use `line-height` for that.
 
 3. What are the 4 areas of the box model?
 
+From the outside in:
+
+- Margin
+- Border
+- Padding
+- Content, or, more specifically, the two-dimensional space taken up by the content
+
 4. While using flexbox, what axis does the following property work on: ```align-items: center```?
 
+The cross-axis
+
 5. Explain why git is valuable to a team of developers.
+
+It allows multiple developers to work on the same project and even the same files at the same time while making sure things like one developer's changes overwriting another's don't happen unless you specify it during the merge process - instead of like, say, when you're working on a group project using the same Word file and two people overwrite the same paragraph at the same time and you lose half your project notes and have to pull an all nighter so you don't fail your senior seminar project that makes up half your grade, not that I've ever had anything like that happen to me.
 
 You are expected to be able to answer all these questions. Your responses contribute to your Sprint Challenge grade. Skipping this section *will* prevent you from passing this challenge.
 
 ## Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your project manager as collaborator on Github.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [*] Create a forked copy of this project.
+- [*] Add your project manager as collaborator on Github.
+- [*] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [*] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
 - [ ] Push commits: git push origin `<firstName-lastName>`.
- 
+
 Follow these steps for completing your project.
 
 - [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
