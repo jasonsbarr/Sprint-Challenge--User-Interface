@@ -170,7 +170,44 @@ p {
 }
 
 .cards {
-    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+}
+
+.card {
+    border-bottom: 1px dashed #000;
+    margin-bottom: 1.5rem;
+    width: calc(50% - 1rem);
+}
+
+.card * + * {
+    margin-top: 1rem;
+}
+
+.card:nth-child(even) {
+    margin-left: 1rem;
+}
+
+.card-img {
+    width: 100%;
+}
+
+.card-button {
+    background: #ffffff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: .5rem 1.5rem;
+    transition: all .3s;
+}
+
+.card-button:hover {
+    background: #000000;
+    color: #ffffff;
+    cursor: pointer;
 }
 
 .middle-content .boxes {
@@ -246,7 +283,9 @@ p {
 }
 
 .about-page .bottom-content {
+    flex-wrap: wrap;
     justify-content: flex-start;
+    margin-bottom: 2rem;
 }
 
 /**
