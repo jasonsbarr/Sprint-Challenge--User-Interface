@@ -86,18 +86,22 @@ p {
  */
 #page-header {
     align-items: flex-end;
-    animation: slideDown .8s ease-in-out;
+    animation: slideDown 1s ease-in-out;
     display: flex;
     justify-content: flex-start;
     margin-bottom: 2.4rem;
 }
 
 .about-page #page-header {
-    animation: hitchRight .5s ease-in-out;
+    animation: hitchRight .5s ease-in-out .3s;
 }
 
 @keyframes slideDown {
     0% {
+        transform: translateY(-200%);
+    }
+
+    45% {
         transform: translateY(-200%);
     }
 
@@ -190,7 +194,7 @@ p {
 }
 
 .about-page .page-header-img {
-    animation: hitchLeft .5s ease-in-out;
+    animation: hitchLeft .5s ease-in-out .3s;
     animation-delay: 0;
 }
 
