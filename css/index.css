@@ -277,6 +277,15 @@ p {
     animation: hitchLeft .5s ease-in-out .3s;
 }
 
+.about-page .page-header::before {
+    background-color: indigo;
+}
+
+.about-page .page-header::after {
+    color: indigo;
+    content: "About this Fictional Company";
+}
+
 /**
  * Content area styles
  */
@@ -339,7 +348,12 @@ footer {
 }
 
 .card-img {
+    transition: all .3s;
     width: 100%;
+}
+
+.card-img:hover {
+    opacity: .8;
 }
 
 .card-button {
@@ -356,6 +370,7 @@ footer {
     background: #000000;
     color: #ffffff;
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .middle-content .boxes {
