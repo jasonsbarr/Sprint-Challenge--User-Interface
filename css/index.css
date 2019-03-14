@@ -47,8 +47,14 @@ table {
 	border-spacing: 0;
 }
 
-* {
+:root {
     box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
 }
 
 html, body {
@@ -67,8 +73,229 @@ p {
 }
 
 .container {
-    width: 800px;
-    margin: 0 auto;
+    margin: 1.3rem auto 0;
+    max-width: 800px;
+}
+
+.container section {
+    margin-bottom: 1.5rem;
+}
+
+/**
+ * Animations
+ */
+@keyframes slideDown {
+
+    0%,
+    45% {
+        transform: translateY(-200%);
+    }
+
+    70% {
+        transform: translateY(1rem);
+    }
+
+    85% {
+        transform: translateY(-.5rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceDown {
+
+    0%,
+    70% {
+        transform: translateY(0);
+    }
+
+    85% {
+        transform: translateY(.6rem);
+    }
+
+    95% {
+        transform: translateY(-.3rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes hitchRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    75% {
+        transform: translateX(1rem);
+    }
+
+    90% {
+        transform: translateX(-.3rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes hitchLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    75% {
+        transform: translateX(-1rem);
+    }
+
+    90% {
+        transform: translateX(.3rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/**
+ * Header and nav styles
+ */
+#page-header {
+    align-items: flex-end;
+    animation: slideDown 1s ease-in-out;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2.4rem;
+}
+
+.about-page #page-header {
+    animation: hitchRight .5s ease-in-out .3s;
+}
+
+.logo {
+    margin-bottom: -3px;
+    transition: all .3s;
+}
+
+.logo:hover {
+    opacity: 0.6;
+}
+
+.nav {
+    margin-left: 3rem;
+    width: 100%;
+}
+
+.nav-list {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-link {
+    color: #000000;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.nav-link:hover {
+    border-bottom: 1px dashed #999999;
+    color: #777777;
+}
+
+.menu-icon {
+    display: none;
+}
+
+/**
+ * Page header styles
+ */
+.page-header {
+    position: relative;
+}
+
+.page-header::before {
+    background-color: coral;
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: all .5s;
+    width: 100%;
+}
+
+.page-header:hover::before {
+    opacity: 1;
+}
+
+.page-header::after {
+    background: #ffffff;
+    border-radius: 5px;
+    color: coral;
+    content: 'Lambda Sprint Challenge';
+    font-size: 1.2rem;
+    font-weight: bold;
+    left: 50%;
+    opacity: 0;
+    padding: 1em 2.5em;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s;
+}
+
+.page-header:hover::after {
+    opacity: 1;
+}
+
+.page-header-img {
+    animation: bounceDown 1s ease-out;
+    opacity: 1;
+    position: relative;
+    transition: all .5s;
+    width: 100%;
+}
+
+.page-header-img:hover {
+    opacity: 0;
+}
+
+.about-page .page-header-img {
+    animation: hitchLeft .5s ease-in-out .3s;
+}
+
+.about-page .page-header::before {
+    background-color: indigo;
+}
+
+.about-page .page-header::after {
+    color: indigo;
+    content: "About this Fictional Company";
+}
+
+/**
+ * Content area styles
+ */
+section,
+footer {
+    animation: fadeIn .8s ease-in-out;
 }
 
 .top-content {
@@ -79,10 +306,18 @@ p {
     border-bottom: 1px dashed black;
 }
 
+.about-page .top-content {
+    justify-content: flex-start;
+}
+
+.top-content .text-container,
+.top-content p {
+    padding-bottom: 20px;
+}
+
 .top-content .text-container {
     width: 48%;
     padding: 0 1%;
-    padding-bottom: 20px;  
 }
 
 .middle-content {
@@ -95,21 +330,115 @@ p {
     margin-bottom: 0;
 }
 
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+}
+
+.card {
+    border-bottom: 1px dashed #000;
+    margin-bottom: 1.5rem;
+    width: calc(50% - 1rem);
+}
+
+.card * + * {
+    margin-top: 1rem;
+}
+
+.card:nth-child(even) {
+    margin-left: 1rem;
+}
+
+.card-img {
+    transition: all .3s;
+    width: 100%;
+}
+
+.card-img:hover {
+    opacity: .8;
+}
+
+.card-button {
+    background: #ffffff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: .5rem 1.5rem;
+    transition: all .3s;
+}
+
+.card-button:hover {
+    background: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .middle-content .boxes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    max-width: 85%;
+    margin: 0 auto;
 }
 
-.middle-content .boxes .box {
-    width: 12.5%;
+.middle-content .boxes .box { /* y'all are hilarious */
+    width: 100px;
     height: 100px;
-    background: black;
     margin: 20px 2.5%;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .3s;
+}
+
+.box:hover {
+    opacity: .8;
+}
+
+/* Box color backgrounds */
+.middle-content .boxes .box.box1 {
+    background-color: teal;
+}
+
+.middle-content .boxes .box.box2 {
+    background-color: gold;
+}
+
+.middle-content .boxes .box.box3 {
+    background-color: cadetblue;
+}
+
+.middle-content .boxes .box.box4 {
+    background-color: coral;
+}
+
+.middle-content .boxes .box.box5 {
+    background-color: crimson;
+}
+
+.middle-content .boxes .box.box6 {
+    background-color: forestgreen;
+}
+
+.middle-content .boxes .box.box7 {
+    background-color: darkorchid;
+}
+
+.middle-content .boxes .box.box8 {
+    background-color: hotpink;
+}
+
+.middle-content .boxes .box.box9 {
+    background-color: indigo;
+}
+
+.middle-content .boxes .box.box10 {
+    background-color: dodgerblue;
 }
 
 .bottom-content {
@@ -125,6 +454,16 @@ p {
 .bottom-content .text-container:last-child {
     padding-right: 0;
 }
+
+.about-page .bottom-content {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+}
+
+/**
+ * Footer styles
+ */
 
 footer {
     width: 100%;
@@ -142,5 +481,105 @@ footer nav {
 
 footer nav a {
     color: white;
+    font-weight: bold;
     text-decoration: none;
+    transition: all .3s;
+}
+
+footer nav a:hover {
+    color: #dddddd;
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 894px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .logo-img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    #page-header {
+        margin-bottom: 1rem;
+    }
+
+    .nav {
+        margin-left: 2rem;
+    }
+
+    .page-header::before,
+    .page-header::after,
+    .about-page .page-header::before,
+    .about-page .page-header::after {
+        display: none;
+    }
+
+    .page-header-img:hover,
+    .about-page .page-header-img:hover {
+        opacity: 0.8;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .container {
+        padding: 0 .5rem;
+        margin-top: 0.7rem;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .nav-list {
+        display: none;
+    }
+
+    .menu-icon {
+        border-radius: 5px;
+        color: #000000;
+        display: inline-block;
+        float: right;
+        font-size: 1.2rem;
+        padding: 0.2rem;
+        position: relative;
+        text-decoration: none;
+        top: .5rem;
+        transition: all .3s;
+    }
+
+    .menu-icon:hover {
+        background-color: #e5e5e5;
+        color: #555555;
+    }
+
+    .card,
+    .top-content .text-container,
+    .bottom-content .text-container {
+        width: 100%;
+    }
+
+    .bottom-content {
+        flex-wrap: wrap;
+    }
+
+    .bottom-content .text-container {
+        margin-bottom: 1.2rem;
+    }
+
+    footer nav {
+        display: block;
+        margin: 0 auto;
+        width: 5rem;
+    }
+
+    footer nav a {
+        display: block;
+    }
+
+    footer nav a + a {
+        margin-top: .5rem;
+    }
 }
